@@ -1,6 +1,6 @@
-package repository;
+package com.practice.kino.repository;
 
-import entity.AuthUser;
+import com.practice.kino.entity.AuthUser;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
