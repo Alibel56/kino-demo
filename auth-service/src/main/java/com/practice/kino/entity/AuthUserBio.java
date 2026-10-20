@@ -14,7 +14,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "USER_BIO", schema = "kino-demo")
+@Table(name = "USER_BIO", schema = "auth")
 public class AuthUserBio {
 
     @Id
