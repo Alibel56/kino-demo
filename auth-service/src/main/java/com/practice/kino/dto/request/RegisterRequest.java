@@ -6,25 +6,17 @@ import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 
-import java.time.LocalDate;
-
 @Builder
 public record RegisterRequest(
         @NotBlank(message = "Name is required!")
-        String name,
+        String firstName,
 
         @NotBlank(message = "Surname is required!")
-        String surname,
-
-        @NotBlank(message = "Birth date is required!")
-        LocalDate birth_date,
+        String lastName,
 
         @NotBlank(message = "Email is required!")
         @Email
         String email,
-
-        @NotBlank(message = "Username is required!")
-        String username,
 
         @NotBlank(message = "Password is required!")
         @Size(

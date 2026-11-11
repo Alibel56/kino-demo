@@ -1,4 +1,10 @@
+server:
+  port: 8081
+
 spring:
+  application:
+    name: user-service
+
   datasource:
     url: jdbc:postgresql://localhost:5432/kino
     username: postgres
@@ -12,6 +18,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-  logging:
-    level:
-      org.springframework.security: TRACE
+
+logging:
+  level:
+    org.springframework.security: TRACE

@@ -21,21 +21,21 @@ public class JwtService {
     private String jwtSecret;
 
 
-    public JwtAuthenticationResponse generateAuthToken(String username){
+    public JwtAuthenticationResponse generateAuthToken(String email){
         return JwtAuthenticationResponse.builder()
-                .token(generateJwtToken(username))
-                .refreshToken(generateJwtRefreshToken(username))
+                .token(generateJwtToken(email))
+                .refreshToken(generateJwtRefreshToken(email))
                 .build();
     }
 
-    public JwtAuthenticationResponse refreshBaseToken(String username, String refreshToken){
+    public JwtAuthenticationResponse refreshBaseToken(String email, String refreshToken){
         return JwtAuthenticationResponse.builder()
-                .token(generateJwtToken(username))
+                .token(generateJwtToken(email))
                 .refreshToken(refreshToken)
                 .build();
     }
 
-    public String getUsernameFromToken(String token){
+    public String getEmailFromToken(String token){
         Claims claims = Jwts.parser()
                 .verifyWith(getSignKey())
                 .build()
@@ -67,19 +67,19 @@ public class JwtService {
     }
 
 
-    private String generateJwtToken(String username) {
+    private String generateJwtToken(String email) {
         Date date = Date.from(LocalDateTime.now().plusMinutes(15).atZone(ZoneId.systemDefault()).toInstant());
         return Jwts.builder()
-                .subject(username)
+                .subject(email)
                 .expiration(date)
                 .signWith(getSignKey())
                 .compact();
     }
 
-    private String generateJwtRefreshToken(String username) {
+    private String generateJwtRefreshToken(String email) {
         Date date = Date.from(LocalDateTime.now().plusDays(1).atZone(ZoneId.systemDefault()).toInstant());
         return Jwts.builder()
-                .subject(username)
+                .subject(email)
                 .expiration(date)
                 .signWith(getSignKey())
                 .compact();

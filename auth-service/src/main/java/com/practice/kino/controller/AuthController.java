@@ -4,6 +4,8 @@ import com.practice.kino.dto.request.LoginRequest;
 import com.practice.kino.dto.request.RefreshTokenRequest;
 import com.practice.kino.dto.request.RegisterRequest;
 import com.practice.kino.dto.response.JwtAuthenticationResponse;
+import com.practice.kino.dto.response.RegisterResponse;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,9 +25,15 @@ public class AuthController{
     public final AuthUserService authService;
 
     @PostMapping("/register")
-    public ResponseEntity<Object> register(@RequestBody RegisterRequest request){
-        authService.addUser(request);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+    public ResponseEntity<RegisterResponse> register(
+            @RequestBody @Valid RegisterRequest request) {
+
+        RegisterResponse response =
+                authService.register(request);
+
+        return ResponseEntity
+                .status(HttpStatus.CREATED)
+                .body(response);
     }
 
     @PostMapping("/login")
