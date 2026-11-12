@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.UUID;
 
@@ -38,7 +39,7 @@ public class UserProfile  {
     private UserBio bio;
 
     @OneToMany(mappedBy = "userProfile")
-    private Set<UserGenrePreference> genrePreferences;
+    private Set<UserGenrePreference> genrePreferences = new HashSet<>();
 
     public void addUserGenrePreference(UserGenrePreference userGenrePreference) {
         genrePreferences.add(userGenrePreference);

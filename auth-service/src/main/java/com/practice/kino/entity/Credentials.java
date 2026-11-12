@@ -15,6 +15,10 @@ public class Credentials {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
+
     @Column(nullable = false, unique = true)
     private UUID userId;
 

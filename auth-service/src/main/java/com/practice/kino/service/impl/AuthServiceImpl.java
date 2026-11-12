@@ -8,6 +8,7 @@ import com.practice.kino.dto.request.RegisterRequest;
 import com.practice.kino.dto.response.JwtAuthenticationResponse;
 import com.practice.kino.dto.response.RegisterResponse;
 import com.practice.kino.entity.Credentials;
+import com.practice.kino.entity.Role;
 import com.practice.kino.repository.CredentialsRepository;
 import com.practice.kino.security.jwt.JwtService;
 import com.practice.kino.service.AuthUserService;
@@ -58,6 +59,7 @@ public class AuthServiceImpl implements AuthUserService {
         credentials.setPasswordHash(
                 passwordEncoder.encode(request.password())
         );
+        credentials.setRole(Role.USER);
         credentialsRepository.save(credentials);
 
         CreateUserRequest createUserRequest = CreateUserRequest.builder()

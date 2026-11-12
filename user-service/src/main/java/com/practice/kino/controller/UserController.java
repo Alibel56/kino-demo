@@ -26,8 +26,6 @@ import java.util.UUID;
 public class UserController {
 
     private final UserProfileService userService;
-    private final UserBioService userBioService;
-    private final UserGenrePreferenceService userGenrePreferenceService;
 
     @PostMapping("/profile")
     public ResponseEntity<ProfileReadResponse> createUser(
@@ -58,44 +56,5 @@ public class UserController {
             @PathVariable(name = "userId") UUID id){
 
         return ResponseEntity.ok(userService.findById(id));
-    }
-
-    @PutMapping("/bio/{userId}")
-    public ResponseEntity<HttpStatus> updateUserBio(
-            @PathVariable(name = "userId") UUID id,
-            @Valid @RequestBody UpdateBioRequest request){
-
-        userBioService.updateUserBio(id, request);
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/bio/{userId}")
-    public ResponseEntity<BioReadResponse> getUserBio(
-            @PathVariable(name = "userId") UUID id){
-
-        return ResponseEntity.ok(userBioService.findByUserId(id));
-    }
-
-    @PostMapping("/genre-preferences")
-    public ResponseEntity<HttpStatus> addUserGenrePreference(
-            @Valid @RequestBody AddGenreRequest request){
-
-        userGenrePreferenceService.addUserGenrePreference(request);
-        return ResponseEntity.ok().build();
-    }
-
-    @GetMapping("/genre-preferences/{userId}")
-    public ResponseEntity<Set<UserGenrePreference>> getUserGenrePreference(
-            @PathVariable(name = "userId") UUID id){
-
-        return ResponseEntity.ok(userGenrePreferenceService.findByUserId(id));
-    }
-
-    @DeleteMapping("/genre-preferences/{genreId}")
-    public ResponseEntity<HttpStatus> deleteUserGenrePreference(
-            @PathVariable(name = "genreId") UUID id){
-
-        userGenrePreferenceService.deleteUserGenrePreference(id);
-        return ResponseEntity.ok().build();
     }
 }
