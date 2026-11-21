@@ -7,7 +7,7 @@ import java.util.Set;
 import java.util.UUID;
 
 public interface UserGenrePreferenceService {
-    public void addUserGenrePreference(AddGenreRequest request);
-    public Set<UserGenrePreference> findByUserId(UUID id);
-    public void deleteUserGenrePreference(UUID id);
+    void addUserGenrePreference(AddGenreRequest request);
+    Set<UserGenrePreference> findByUserId(UUID id);
+    void deleteUserGenrePreference(UUID id);
 }

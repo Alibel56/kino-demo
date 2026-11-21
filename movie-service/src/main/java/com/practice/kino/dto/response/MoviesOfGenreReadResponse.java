@@ -1,4 +1,8 @@
 package com.practice.kino.dto.response;
 
-public record MoviesOfGenreReadResponse() {
-}
+import java.time.LocalDate;
+
+public record MoviesOfGenreReadResponse(
+        String title,
+        LocalDate releaseDate
+) {}

@@ -8,4 +8,5 @@ import java.util.UUID;
 
 @Repository
 public interface RatingRepository extends JpaRepository<Rating, UUID> {
+    Rating findByMovieId(UUID movieId);
 }

@@ -17,5 +17,5 @@ public class Rating {
     private Movie movie;
 
     @Column(name = "avg_rating", nullable = false)
-    private Long rating;
+    private Double rating;
 }

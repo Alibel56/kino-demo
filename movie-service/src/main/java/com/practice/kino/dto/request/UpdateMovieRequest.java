@@ -1,4 +1,8 @@
 package com.practice.kino.dto.request;
 
-public record UpdateMovieRequest() {
-}
+import com.practice.kino.entity.Rating;
+
+public record UpdateMovieRequest(
+        String url,
+        Rating rating
+) {}

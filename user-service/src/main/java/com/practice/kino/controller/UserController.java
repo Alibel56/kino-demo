@@ -29,32 +29,32 @@ public class UserController {
 
     @PostMapping("/profile")
     public ResponseEntity<ProfileReadResponse> createUser(
-            @Valid @RequestBody CreateUserRequest request) {
-
+            @Valid @RequestBody CreateUserRequest request
+    ) {
         return ResponseEntity.ok(userService.createUserProfile(request));
     }
 
     @PatchMapping("/profile/{userId}")
     public ResponseEntity<HttpStatus> updateUserProfile(
-            @PathVariable(name = "userId") UUID id,
-            @Valid @RequestBody UpdateProfileRequest request){
-
-        userService.updateUserProfile(id, request);
+            @PathVariable UUID userId,
+            @Valid @RequestBody UpdateProfileRequest request
+    ){
+        userService.updateUserProfile(userId, request);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/profile/{userId}")
     public ResponseEntity<HttpStatus> deleteUserProfile(
-            @PathVariable(name = "userId") UUID id){
-
-        userService.deleteUserProfile(id);
+            @PathVariable UUID userId
+    ){
+        userService.deleteUserProfile(userId);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/profile/{userId}")
     public ResponseEntity<ProfileReadResponse> getUserProfile(
-            @PathVariable(name = "userId") UUID id){
-
-        return ResponseEntity.ok(userService.findById(id));
+            @PathVariable UUID userId
+    ){
+        return ResponseEntity.ok(userService.findById(userId));
     }
 }

@@ -7,7 +7,7 @@ import java.util.UUID;
 
 public interface GenreService {
 
-    public void addGenre(AddGenreRequest request);
-    public void deleteGenre(UUID genreId);
-    public GenreReadResponse findGenreById(UUID genreId);
+    void addGenre(AddGenreRequest request);
+    void deleteGenre(UUID genreId);
+    GenreReadResponse findGenreById(UUID genreId);
 }

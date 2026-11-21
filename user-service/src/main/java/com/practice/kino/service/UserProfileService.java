@@ -8,9 +8,9 @@ import com.practice.kino.entity.UserProfile;
 import java.util.UUID;
 
 public interface UserProfileService {
-    public ProfileReadResponse createUserProfile(CreateUserRequest request);
-    public void updateUserProfile(UUID id, UpdateProfileRequest request);
-    public void deleteUserProfile(UUID id);
-    public ProfileReadResponse findById(UUID id);
-    public UserProfile findProfileById(UUID id);
+    ProfileReadResponse createUserProfile(CreateUserRequest request);
+    void updateUserProfile(UUID id, UpdateProfileRequest request);
+    void deleteUserProfile(UUID id);
+    ProfileReadResponse findById(UUID id);
+    UserProfile findProfileById(UUID id);
 }

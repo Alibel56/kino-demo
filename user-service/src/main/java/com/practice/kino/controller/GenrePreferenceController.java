@@ -21,24 +21,24 @@ public class GenrePreferenceController {
 
     @PostMapping("/genre-preferences")
     public ResponseEntity<HttpStatus> addUserGenrePreference(
-            @Valid @RequestBody AddGenreRequest request){
-
+            @Valid @RequestBody AddGenreRequest request
+    ){
         userGenrePreferenceService.addUserGenrePreference(request);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/genre-preferences/{userId}")
     public ResponseEntity<Set<UserGenrePreference>> getUserGenrePreference(
-            @PathVariable(name = "userId") UUID id){
-
-        return ResponseEntity.ok(userGenrePreferenceService.findByUserId(id));
+            @PathVariable UUID userId
+    ){
+        return ResponseEntity.ok(userGenrePreferenceService.findByUserId(userId));
     }
 
     @DeleteMapping("/genre-preferences/{genreId}")
     public ResponseEntity<HttpStatus> deleteUserGenrePreference(
-            @PathVariable(name = "genreId") UUID id){
-
-        userGenrePreferenceService.deleteUserGenrePreference(id);
+            @PathVariable UUID genreId
+    ){
+        userGenrePreferenceService.deleteUserGenrePreference(genreId);
         return ResponseEntity.ok().build();
     }
 }

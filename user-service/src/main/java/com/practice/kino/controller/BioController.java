@@ -20,17 +20,17 @@ public class BioController {
 
     @PutMapping("/bio/{userId}")
     public ResponseEntity<HttpStatus> updateUserBio(
-            @PathVariable(name = "userId") UUID id,
-            @Valid @RequestBody UpdateBioRequest request){
-
-        userBioService.updateUserBio(id, request);
+            @PathVariable UUID userId,
+            @Valid @RequestBody UpdateBioRequest request
+    ){
+        userBioService.updateUserBio(userId, request);
         return ResponseEntity.ok().build();
     }
 
     @GetMapping("/bio/{userId}")
     public ResponseEntity<BioReadResponse> getUserBio(
-            @PathVariable(name = "userId") UUID id){
-
-        return ResponseEntity.ok(userBioService.findByUserId(id));
+            @PathVariable UUID userId
+    ){
+        return ResponseEntity.ok(userBioService.findByUserId(userId));
     }
 }

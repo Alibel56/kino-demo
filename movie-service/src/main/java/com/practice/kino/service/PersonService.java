@@ -6,8 +6,8 @@ import com.practice.kino.dto.response.PersonReadResponse;
 import java.util.UUID;
 
 public interface PersonService {
-    public void addPerson(PersonRequest person);
-    public void updatePerson(PersonRequest person);
-    public void deletePerson(UUID personId);
-    public PersonReadResponse findPersonById(UUID personId);
+    void addPerson(PersonRequest request);
+    void updatePerson(UUID personId, PersonRequest request);
+    void deletePerson(UUID personId);
+    PersonReadResponse findPersonById(UUID personId);
 }

@@ -10,9 +10,9 @@ import java.util.UUID;
 
 public interface MovieService {
 
-    public void addMovie(AddMovieRequest request);
-    public void updateMovie(UpdateMovieRequest request);
-    public void deleteMovie(UUID movieId);
-    public MovieReadResponse findMovieById(UUID movieId);
-    public List<MovieReadResponse> findAllMoviesByFilter(MovieFilterRequest request);
+    void addMovie(AddMovieRequest request);
+    void updateMovie(UUID movieId, UpdateMovieRequest request);
+    void deleteMovie(UUID movieId);
+    MovieReadResponse findMovieById(UUID movieId);
+    List<MovieReadResponse> findAllMoviesByFilter(MovieFilterRequest request);
 }

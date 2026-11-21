@@ -6,11 +6,12 @@ import com.practice.kino.dto.response.GenresOfMovieReadResponse;
 import com.practice.kino.dto.response.MoviesOfGenreReadResponse;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface MovieGenreService {
-    public void addMovieCast(MovieGenreRequest request);
-    public void deleteMovieCast(MovieGenreRequest request);
-    public List<GenresOfMovieReadResponse> findAllGenresOfMovieByMovieId(UUID movieId);
-    public List<MoviesOfGenreReadResponse> findAllMoviesOfGenreByGenreId(UUID genreId);
+    void addMovieGenre(MovieGenreRequest request);
+    void deleteMovieGenre(MovieGenreRequest request);
+    List<GenresOfMovieReadResponse> findAllGenresOfMovieByMovieId(UUID movieId, Optional<Integer> limit);
+    List<MoviesOfGenreReadResponse> findAllMoviesOfGenreByGenreId(UUID genreId, Optional<Integer> limit);
 }

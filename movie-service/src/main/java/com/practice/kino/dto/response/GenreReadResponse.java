@@ -1,4 +1,9 @@
 package com.practice.kino.dto.response;
 
-public record GenreReadResponse() {
-}
+import lombok.Builder;
+
+@Builder
+public record GenreReadResponse(
+        String title,
+        String description
+) {}
